@@ -1,0 +1,65 @@
+﻿@model FlatTest.Models.Story
+
+@{
+    ViewBag.Title = "Details";
+    Layout = null;
+}
+
+<div class="modal-content">
+    <div class="modal-header">
+        <button class="close" data-dismiss="modal" area-hidden="true">X</button>
+        <h4>Story</h4>
+    </div>
+    <div class="modal-body">
+
+        <div>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.User.UserName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.User.UserName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Title)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Title)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Content)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Content)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.PostedOn)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.PostedOn)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.StoryID }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </div>
+</div>
+

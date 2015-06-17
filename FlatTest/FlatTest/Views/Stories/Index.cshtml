@@ -1,0 +1,65 @@
+﻿@model PagedList.IPagedList<FlatTest.Models.Story>
+@using PagedList.Mvc;
+<script src="~/Scripts/jsUtility.js"></script>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div id="modDialog" class="modal fade">
+    <div id="dialogContent" class="modal-dialog"></div>
+</div>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().User.UserName)
+            
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Content)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().PostedOn)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Content)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostedOn)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.StoryID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.StoryID }, new { @class = "stItem"}) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.StoryID })
+        </td>
+    </tr>
+}
+
+</table>
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }), PagedListRenderOptions.ClassicPlusFirstAndLast ) 
