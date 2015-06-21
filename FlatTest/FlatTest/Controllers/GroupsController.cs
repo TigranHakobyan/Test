@@ -9,11 +9,12 @@ using System.Web.Mvc;
 using FlatTest.Models;
 using PagedList;
 
+
 namespace FlatTest.Controllers
 {
     public class GroupsController : Controller
     {
-        private FlatTestContext db = new FlatTestContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Groups
         public ActionResult Index(int page = 1, int pageSize = 5)
@@ -131,6 +132,10 @@ namespace FlatTest.Controllers
             {
                 db.Dispose();
             }
+            //if (db is IDisposable)
+            //{
+            //    ((IDisposable)db).Dispose();
+            //}
             base.Dispose(disposing);
         }
     }

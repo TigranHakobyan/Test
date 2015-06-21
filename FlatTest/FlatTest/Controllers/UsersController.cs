@@ -13,7 +13,7 @@ namespace FlatTest.Controllers
 {
     public class UsersController : Controller
     {
-        private FlatTestContext db = new FlatTestContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Users
         public ActionResult Index(int page = 1, int pageSize = 5)

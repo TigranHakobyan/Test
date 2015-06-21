@@ -14,7 +14,7 @@ namespace FlatTest.Controllers
 {
     public class StoriesController : Controller
     {
-        private  FlatTestContext db = new FlatTestContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         [HttpGet]
         // GET: Stories

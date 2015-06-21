@@ -20,8 +20,10 @@ namespace FlatTest.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+
+
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("FlatTestContext", throwIfV1Schema: false)
         {
         }
 
@@ -29,5 +31,11 @@ namespace FlatTest.Models
         {
             return new ApplicationDbContext();
         }
+
+        public virtual DbSet<Group> Groups { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Story> Stories { get; set; }
+
+
     }
 }

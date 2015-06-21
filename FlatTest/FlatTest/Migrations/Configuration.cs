@@ -7,14 +7,14 @@ namespace FlatTest.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<FlatTest.Models.FlatTestContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(FlatTest.Models.FlatTestContext context)
+        protected override void Seed(ApplicationDbContext context)
         {
             var groups = new List<Group>
             {
